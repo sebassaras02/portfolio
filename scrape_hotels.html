@@ -65,14 +65,13 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img class="img-fluid mb-4 mb-lg-0" src="img/portfolio/covid/x-ray-chest_xl.jpg" alt="Covid RX">
+                    <img class="img-fluid mb-4 mb-lg-0" src="img/portfolio/scrape_hotels/hotel.png" alt="Scraper Scraper-Riviera-Maya-Hotels">
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="display-4 text-uppercase mb-4">COVID-19</h1>
+                    <h1 class="display-4 text-uppercase mb-4">Riviera Maya Hotels Web Scraping</h1>
                     <h5 class="text-uppercase text-primary mb-3">Introduction</h5>
-                    <p class="mb-4">COVID-19 was a global pandemic and was spread around the whole world. The hospital resources were in a complicated crisis because supply chain was broken due to regulations and controls.</p>
-                    <p>In developing countries, at the beginning of the pandemic, detecting COVID-19 was a hard challenge. Typically, one test might take around 3-15 days to give a result. However, this time did not let doctor to diagnostic quickly and effectively.</p>
-                    <p>Using Artificial Intelligence (AI) through a classification algorithm with X-ray chest scans was purposed like an alternative to avoid test by chemical methods such as PCR.</p>
+                    <p class="mb-4">Riviera Maya is a touristic zone in Mexico. It has many hotels available for the people. In fact, an organization of hotels is available and summarizes the information of almost all hotels.</p>
+                    <p> The goal of the project was obtaining a database of the hotels available.</p>
                 </div>
             </div>
         </div>
@@ -84,52 +83,36 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
-                        <h5 class="text-uppercase text-primary mb-3">Data information:</h5>
+                        <h5 class="text-uppercase text-primary mb-3">Data obtained:</h5>
                         <ol class="mb-4">
-                            <li>The data comes from the following Kaggle repository: <a href="https://www.kaggle.com/datasets/pranavraikokte/covid19-image-dataset/code?datasetId=627146&sortBy=dateRun&tab=profile">https://www.kaggle.com/datasets/pranavraikokte/covid19-image-dataset/code?datasetId=627146&sortBy=dateRun&tab=profile</a></li>
-                            <li>The data was split into 80% for training and 20% for validation. From the training data set was obtained a validation data set which was 20% of the original training dataset. The final training dataset had the rest of the original training dataset.</li>
-                            <li>Three labels were available, and they were covid, normal, and viral pneumonia.</li>
+                            <p>Link to La Hotel's organization of Riviera Maya:  <a href="http://rivieramaya.org.mx/">http://rivieramaya.org.mx/</a></p>
+                            <li>Hotel name</li>
+                            <li>Hotel direction</li>
+                            <li>Hotel e-mail</li>
+                            <li>Hotel phone</li>
+                            <li>Hotel fax</li>
+                            <li>Hotel website</li>
                         </ol>
                     </div>
                     
                     <div class="col-lg-12 py-4 bg-light">
-                        <h5 class="text-uppercase text-primary mb-3">Final model results</h5>
+                        <h5 class="text-uppercase text-primary mb-3">Importance of the project:</h5>
                         <ul class="mb-1">
-                            <li>Loss = 0.65</li>
-                            <li>Accuracy = 0.92</li>
+                            <li>Summarize hotel data in a file</li>
+                            <li>Automatization of data collection</li>
                         </ul>
                     </div>
     
                     <div class="col-lg-12 py-4">
-                        <h5 class="text-uppercase text-primary mb-3">Data Treatment Process</h5>
-                        <p>Three approaches were done to solve the classification. A Convolutional Neural Network (CNN) was built in all the cases.</p>
+                        <h5 class="text-uppercase text-primary mb-3">Outcomes:</h5>
                         <ul class="mb-4">
-                            <li>Data analysis, data treatment and data visualization of data from radiation detectors.</li>
-                            <li>Developing modules to simplify radiation detector calibration with Python.</li>
-                            <li>Tools used: Numpy, Pandas, Matplotlib, Seaborn.</li>
+                            <li>Python script to scrape the site.</li>
+                            <li>A csv or JSON file with hotel information.</li>
                         </ul>
                     </div>
                     
                     <div class="col-lg-12 py-4">
-                        <h5>Approach 1</h5>
-                        <p>It was built a CNN with 4 Convolutional Layers, a Flatten layer and two Dense layers. The Convolutional Layers had MaxPooling, Batch Normalization and Dropout layers too. The trainable parameters were roughly 851 000 parameters. During the training stage, it was used a callback to save the model with the best validation accuracy metric. <br>
-                        <br>
-                        However, the model converged around 0.44 of accuracy and it did not improve throughout the epochs. The model was evaluated with the test dataset, and it got 0.39 of accuracy. <br>
-                        <br>
-                        This approach did not work out, so it was thought that overfitting was a reason of having a low accuracy.
-                        </p>
-                        <h5>Approach 2</h5>
-                        <p>Considering that overfitting is present, this model only used a Convolutional Layer with Max Pooling and Batch Normalization, then it was added a flatten layer and a dense layer. The trainable parameters were roughly 1 000 000. <br>
-                            <br>
-                            Throughout the epochs, the model got an accuracy of 0.8 with the validation data. It was tested if the model was able to generalize well the learning process. The accuracy got with test dataset was of 0.71. <br>
-                            <br>
-                            Even though the model improved in this approach, the accuracy gotten did not met the requirement. This application can be used in medical diagnosis, so the accuracy must be as high as possible.
-                        </p>
-                        <h5>Approach 3</h5>
-                        <p>Transfer Learning is the process where a Neural Network used in a similar task is trained to do another similar task. In this case, it was used the ResNet152V2 model. The ResNet152V2 parameters of the layers were frozen to retain what the model previously learns for another task. In this case, it was added a Flatten layer and then three dense layers. The final model has roughly 58 M of non-trainable parameters and 13 M of trainable parameters. The model at the end of the training had an accuracy of 0.92 for validation dataset. <br>
-                        <br>
-                        Finally, the capability of generalize it was proven. The final model got an accuracy of 0.9242 for the test dataset. The best solution in this case, it was using transfer learning because it was not available enough data to build an own model.</p>
-                        <a href="https://github.com/sebassaras02/COVID-19-CNN-ResNet152-V2" class="btn btn-primary text-uppercase mt-1 py-3 px-5">Show code</a>
+                        <a href="https://github.com/sebassaras02/Scraper-Riviera-Maya-Hotels" class="btn btn-primary text-uppercase mt-1 py-3 px-5">Show code</a>
                     </div>
     
                 </div>
