@@ -57,16 +57,14 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img class="img-fluid mb-4 mb-lg-0" src="img/portfolio/scraper_news/news_f.png" alt="Scrape  News">
+                    <img class="img-fluid mb-4 mb-lg-0" src="img/portfolio/langchain/1.jpg" alt="Scrape  News">
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-4 text-uppercase mb-4">Newspaper Web Scraping</h1>
                     <h5 class="text-uppercase text-primary mb-3">Introduction</h5>
-                    <p class="mb-4">La Gaceta is a popular newspaper in the Cotopaxi province, in the country of Ecuador. </p>
-                    <p>La Gaceta publishes news of a broad bunch of topics. The topics are about politics, sports, economy and so on.</p>
-                    <p>This newspaper also splits the notices per town in the province to target the audience.</p>
-                    <p>The goal of this work was scraped the news to get the title and the story for each new.</p>
-                    <p>All the scraping process followed the rules of the robots.txt file</p>
+                    <p class="mb-4">Today, Large Language Models (LLMs) are being used more in different bussiness. However, fine-tunning is not the most suitable option when the LLM has to deal with private information. </p>
+                    <p>LangChain is a tool which enables to connect data from several type of unstructured documents that contains text information. LangChain allows to retrieve the information from this data.</p>
+                    <p>The goal of this work was to create a telegram chat bot which runs a LLM with langchain to access data from txt files which contains information of the bussiness.</p>
                 </div>
             </div>
         </div>
@@ -80,30 +78,45 @@
                     <div class="col-lg-12">
                         <h5 class="text-uppercase text-primary mb-3">Data obtained:</h5>
                         <ol class="mb-4">
-                            <p> The newspaper is available in the next link: <a href="https://lagaceta.com.ec/">https://lagaceta.com.ec/</a></p>
-                            <li>News title.</li>
-                            <li>News body.</li>
+                            <p> The data was created for the purpose of this project. In this case, it was created a fake company called E-SAS, E-SAS aims to sell pet accessories online.</p>
                         </ol>
                     </div>
                     
                     <div class="col-lg-12 py-4 bg-light">
                         <h5 class="text-uppercase text-primary mb-3">Importance of the project:</h5>
                         <ul class="mb-1">
-                            <li>Save the news to have a historical register.</li>
-                            <li>Automatization of data collection.</li>
+                            <li>Having a LLM which goes beyond the data trained from the typical ChatGPT model.</li>
                         </ul>
                     </div>
     
                     <div class="col-lg-12 py-4">
-                        <h5 class="text-uppercase text-primary mb-3">Outcomes: </h5>
+                        <h5 class="text-uppercase text-primary mb-3">Tools used: </h5>
                         <ul class="mb-4">
-                            <li>Python script to scrape the site.</li>
-                            <li>Each new is saved like a txt file in a folder according to the date.</li>
+                            <li>LangChain</li>
+                            <li>Python</li>
+                            <li>OpeanAI API</li>
+                            <li>Telegram bot</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-12 py-4 bg-light">
+                        <h5 class="text-uppercase text-primary mb-3">Workflow of the project:</h5>
+                        <ul class="mb-1">
+                            <li>The data was loaded, cleaned, and saved as Document type.</li>
+                            <li>Texts were transformed into embeddings.</li>
+                            <li>Information retrieved and send to the LLM.</li>
+                            <li>Telegram sends the answer.</li>
+                            <li>The following flowchart shows how this process works out.</li>
+
+                            <div class="col-lg-12 py-4 align-items-center text-center">
+                                <img class="img-fluid mb-lg-3" src="img/portfolio/langchain/workflow.jpg" alt="Workflow used">
+                            </div>
+
                         </ul>
                     </div>
 
                     <div class="col-lg-12 py-4">
-                        <a href="https://github.com/sebassaras02/Scrapper-La-Gaceta" class="btn btn-primary text-uppercase mt-1 py-3 px-5">Show code</a>
+                        <a href="https://github.com/sebassaras02/chat_bot_langchain" class="btn btn-primary text-uppercase mt-1 py-3 px-5">Show code</a>
                     </div>
 
 
