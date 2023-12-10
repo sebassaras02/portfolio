@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sebastián Sarasti - Data Scientist</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <meta content="description" name="Data Science and Artificial Intelligence Consultant">
+    <meta name = "robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-white position-relative">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand text-secondary">
+                <h1 class="display-4 text-uppercase">Sebastián Sarasti</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="project.html" class="nav-item nav-link active">Projects</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid bg-primary p-4"></div>
+    <!-- Navbar End -->
+
+
+    <!-- About Covid -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img class="img-fluid mb-4 mb-lg-0" src="img/portfolio/glaucoma_detection/1.png" alt="NLTK">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-4 text-uppercase mb-4">Glaucoma Detection with Computer Vision</h1>
+                    <h5 class="text-uppercase text-primary mb-3">Introduction</h5>
+                    <p class="mb-4"> Glaucoma is an eye disease that can lead to permanent vision loss, primarily caused by elevated eye pressure. While the condition is serious, early detection can significantly reduce and control the damage. </p>
+                    <p class="mb-4"> In the current landscape, various methods are available for diagnosing glaucoma. However, it's noteworthy that AI techniques, especially those involving computer vision, are not yet widely adopted in the medical community. This project serves as an initiative to demonstrate the potential of AI, coupled with computer vision, in the early detection of glaucoma. </p>
+                    <p> The approach employed in this project leverages Vision Transformers (ViT) to generate a dense representation, which is then utilized as a vector for classification. Transfer Learning is applied by adding additional layers to the pre-trained ViT model. For more detailed information about the ViT architecture used in this work, refer to the following documentation: <a href="https://huggingface.co/docs/transformers/main/en/model_doc/vit#vision-transformer-vit" target="_blank">Vision Transformer (ViT)</a>. </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Covid End -->
+    
+        <!-- Data information Start -->
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <h5 class="text-uppercase text-primary mb-3">Data information:</h5>
+                        <ol class="mb-4">
+                             <!-- añadir un li y un hipervinculo a kaggle -->
+
+                             <li>The data used come from the following <a href="https://www.kaggle.com/datasets/sabari50312/fundus-pytorch">Kaggle data set</a>.</li>
+                            <li> The dataset has three folders with pictures for training, validation, and testing. In each of those folders, you can find two subfolders, one for each category 0 (Glaucoma no present) and 1 (Glaucoma present).</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="col-lg-12 py-4 bg-light">
+                        <h5 class="text-uppercase text-primary mb-3">Data treatment</h5>
+                        <ul class="mb-1">
+                            <li>Data was loaded and transformed with the processed established to appply ViT. This was done with AutoImageProcessor object with a transformation.</li>
+                            <li>A data loader was created for each subset of data, and it was applied a collector function to concatenate the feature and target tensors.</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-lg-12 py-4">
+                        <h5 class="text-uppercase text-primary mb-3">Model </h5>
+                        <ul class="mb-4">
+                            <li>The model used was a ViT model with a pre-trained model from the library HuggingFace.</li>
+                            <li>The model was trained with a batch size of 32, 10 epochs, and a learning rate of 0.001.</li>
+                            <li>The layers of the ViT were frozen to add three layers at the end. The first layer added was a flatten layer, the second was a Linear layer with a ReLU as activation functions, and the third layer was also Linear but with a sigmoid activation function.</li>
+                            <li>The loss function for the final model was the Binary-Cross entropy and the optimizer was Adam.</li>
+                    </div>
+
+                    <div class="col-lg-12 py-4 bg-light">
+                        <h5 class="text-uppercase text-primary mb-3">Results</h5>
+                        <ul class="mb-1">
+                            <li>Finally, assessing the model over the dataset for testing, the model attained an overall accuracy of 97%, indicating a successful training process. However, relying solely on accuracy can introduce bias, especially for imbalanced classes. To address this, additional metrics such as recall and precision were evaluated for each predicted class.</li>
+                            <li>For class 0 (no glaucoma), the model demonstrated a precision of 0.96 and a recall of 0.98. In contrast, for class 1 (glaucoma), the model achieved a precision of 0.97 and a recall of 0.94. These results signify the model's ability to generalize effectively across both classes.</li>
+                            <li> <a href="https://github.com/sebassaras02/glaucoma_identification_ViT">Public code is available in the following GitHub repo.</a> </li>
+                            <li> <a href="https://huggingface.co/sebastiansarasti/glaucoma-clasification/tree/main">Public Pytorch model is also available in the following Huggingface repo.</a> </li>
+                    
+                        </ul>
+                    </div>                    
+
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Data information End -->
+
+
+
+
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 mt-n2 text-white display-4">Sebastián</h1>
+                    <h1 class="m-0 mt-n2 text-white display-4">Sarasti</h1>
+                </a>
+                <p>Follow me on my social media channels to know more about my projects.</p>
+                <h6 class="text-uppercase text-white py-2">Follow Us</h6>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-white mb-4">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt text-white mr-2"></i>Pujilí, Cotopaxi, Ecuador</p>
+                <p><i class="fa fa-envelope text-white mr-2"></i>sebitas.alejo@hotmail.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-white mb-4">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Home</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>About Us</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Our Services</a>
+                    <a class="text-white-50" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #000000;">
+        <p class="mb-2 text-center text-white-50">&copy; <a href="#">Sebastián Sarasti Zambonino</a>. All Rights Reserved.</p>
+        <p class="m-0 text-center text-white-50">Designed by <a href="https://htmlcodex.com">HTML Codex</a></p>
+        <p class="m-0 text-center text-white-50">Edited by Sebastián Sarasti and Angel Bastidas</a></p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
